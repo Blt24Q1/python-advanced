@@ -87,10 +87,31 @@ def deserailize():
     """
     피클 역직렬화 load, 프로토콜 버전은 명시하지 않아도 됨
     """
+
+    data_list = []
+
     with open("./sample/players.bin", "rb") as f:
-        print(pickle.load(f))
-        print(pickle.load(f))
-        print(pickle.load(f))
+        # print(pickle.load(f))
+        # print(pickle.load(f))
+        # print(pickle.load(f))
+        # print(pickle.load(f))
+        while True: # 몇 개인지 모름
+            try:
+                data = pickle.load(f)
+            except EOFError: # 피클이 없음
+                break
+            data_list.append(data)
+
+    print("역직렬화 결과:", data_list)
+
+
+"""연습문제
+- sangbuk.csv -> 읽어서
+- ,를 기준으로 분할
+- 한 개 레코드를 dict
+    - {"name":채치수, "backno":4, "height":197, "position":센터}
+- sanbuk-players.bin -> pickle로 dump
+"""
 
 
 if __name__ == "__main__":
