@@ -68,5 +68,21 @@ def handling_exception():
         print("End of try")
 
 
+def raise_exception():
+    def beware_dog(animal):
+        if animal == "dog":
+            raise RuntimeError("강아지는 출입을 제한합니다.")
+        else:
+            print("어서오세요")
+
+    try:
+        beware_dog("cat")
+        beware_dog("cow")
+        beware_dog("dog")
+    except Exception as e:
+        print(e, type(e))
+
+
 if __name__ == "__main__":
-    handling_exception()
+    # handling_exception()
+    raise_exception()
