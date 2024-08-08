@@ -10,7 +10,7 @@ def incr(a, step=1):    # 두번째 인수(step)은 기본 값이 있음
 
 
 print(sum_val(2, 3))
-print(incr(10)) #   두 번째 인수가 부여되지 않으면 기본값을 활용
+print(incr(10))  # 두 번째 인수가 부여되지 않으면 기본값을 활용
 print(incr(10, 2))  # 기본값 무시하고 값을 부여하면 그 값이 활용
 
 
