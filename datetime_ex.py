@@ -39,5 +39,46 @@ def get_datetime():
     print(t.hour, t.minute, t.second, t.microsecond)
 
 
+def timedelta_ex():
+    """
+    timedelta 클래스: 두 날짜 사이의 시간 간격
+    """
+    current = datetime.now()    # 현재 시간
+    past = datetime(2012, 9, 24) # 과거
+    # 대소 비교 가능
+    print(current > past)   # current가 past보다 큰가(뒤인가?)
+    # 두 날짜의 간격
+    diff = current - past
+    print("시간간격:", diff)
+
+    # 속성: days, seconds, microseconds
+    print(diff.days, diff.seconds, diff.microseconds)
+    # 메서드: total_seconds()
+    print("총", diff.total_seconds(), "초 흘렀습니다.")
+
+    # datetime과 timedelta 합산
+    print(current, "에서", diff, "를 합산한 결과:", current + diff)
+
+
+def format_date():
+    """
+    .strftime() -> 날짜, 시간 정보를 문자열로 포매팅
+    .strptime() -> 문자열 정보를 날짜, 시간 정보로 해독
+    """
+
+    current = datetime.now()
+    print(current)
+    print(current.strftime("%Y년 %m월 %d일 %H시 %M분 %S초"))
+
+    strdate = "2045년 08월 08일"
+    dt = datetime.strptime(strdate, "%Y년 %m월 %d일")
+    print(dt)
+    print(repr(dt))
+
+    # dt2 = eval(repr(dt))
+    # print(dt2, type(dt2))
+
 if __name__ == "__main__":
-    get_datetime()
+    # get_datetime()
+    # timedelta_ex()
+    format_date()
