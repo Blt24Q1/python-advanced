@@ -18,6 +18,7 @@ class Point:
         # 객체를 문자열로 변환
         # 원래 목적: 객체 재현
         return f"Point({self.x}, {self.y})"
+
     def setX(self, x):  # 인스턴스 메서드의 첫번째 인자는 self
         self.x = x
 
@@ -29,6 +30,36 @@ class Point:
 
     def getY(self):
         return self.y
+
+    # 연산자 오버로딩 +
+    # 산술연산자 + 오버로딩
+    # Point + Point
+    # Point + int
+    def __add__(self, other): # Point + {other}
+        if isinstance(other, int): # x, y값에 int 값을 합산
+            self.x += other
+            self.y += other
+        elif isinstance(other, Point):
+            self.x += other.x
+            self.y += other.y
+        return self
+
+    def __radd__(self, other):  # {other} + Point
+        if isinstance(other, int):
+            self.x += other
+            self.y += other
+        return self
+
+    def __eq__(self, other): # Point == {other}
+        if (isinstance(other, Point)):
+            return self.x == other.x and \
+                    self.y == other.y
+        return False
+
+    # 연습
+    # 산술연산자, 역이항 연산자, 비교연산자 중
+    # 몇개는 오버라이딩 해 보기
+
 
 # 정적 메서드와 클래스메서드
 # - 클래스 메서드: 모든 인스턴스들이 공유하는 메서드

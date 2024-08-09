@@ -80,10 +80,26 @@ def singleton_test():
     # s1, s2 객체가 동일 객체?
     print(s is s2)
 
+
+def oper_overriding():
+    # 산술연산자 오버로딩
+    print(Point(10, 20) + Point(30, 40))
+    print(Point(10, 20) + 30)
+
+    # 역이항 산술연산자 오버로딩
+    print(Point(30, 40) + Point(10, 20))
+    print(30 + Point(10, 20))
+
+    # 비교연산자
+    print(Point(10, 20) == Point(10, 20))
+    print(Point(10, 20) == Point(30, 40))
+
+
 if __name__ == "__main__":
     # bound_instance_method()
     # unbound_instance_method()
     # class_member_test()
     # constructor_test()
     # stringify()
-    singleton_test();
+    # singleton_test()
+    oper_overriding()
