@@ -42,7 +42,48 @@ def class_member_test():
     print(p1.instance_count is p2.instance_count)
 
 
+def constructor_test():
+    p1 = Point(10, 20)
+    print("instance_count:", Point.instance_count)
+    p2 = Point()    # 생성자의 기본값이 활용
+    print("instance_count:", Point.instance_count)
+    p3 = Point(x = 30, y = 40)
+    print("instance_count:", Point.instance_count)
+
+    del p1
+    del p2
+
+    print("instance_count", Point.instance_count)
+
+
+def stringify():
+    p = Point(10, 20)
+    print(p)    # 문자열화 -> __str__이 호출
+    print(repr(p))  # 문자열화 -> 원래 객체를 재현할 수 있는 문자열
+
+    p_repr = eval(repr(p))
+    print(p_repr)
+
+    print(p.x == p_repr.x)
+    print(p.y == p_repr.y)
+
+
+from point import Singleton
+
+def singleton_test():
+    s = Singleton()
+    print(s)
+    # s2 = Singleton()  # 예외 발생
+    s2 = Singleton.getClassInstance()
+    print(s2)
+
+    # s1, s2 객체가 동일 객체?
+    print(s is s2)
+
 if __name__ == "__main__":
     # bound_instance_method()
     # unbound_instance_method()
-    class_member_test()
+    # class_member_test()
+    # constructor_test()
+    # stringify()
+    singleton_test();
